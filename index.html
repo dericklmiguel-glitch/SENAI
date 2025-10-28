@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal SENAI - Educação Profissional e Inovação</title>
+  <style>
+    :root {
+      --cor-principal: #e60000;
+      --cor-secundaria: #b30000;
+      --cor-fundo: #f5f5f5;
+      --cor-texto: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--cor-texto);
+      background-color: var(--cor-fundo);
+      scroll-behavior: smooth;
+    }
+
+    /* ====== CABEÇALHO E MENU ====== */
+    header {
+      background-color: var(--cor-principal);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff7cc;
+    }
+
+    /* ====== BANNER ====== */
+    .banner {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://www.sp.senai.br/images/fundo-banner.jpg') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .banner h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .banner p {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+    }
+
+    .btn-banner {
+      background-color: var(--cor-principal);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-banner:hover {
+      background-color: var(--cor-secundaria);
+    }
+
+    /* ====== SEÇÕES ====== */
+    section {
+      padding: 60px 10%;
+      background-color: white;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      text-align: center;
+      color: var(--cor-principal);
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+
+    .cursos, .unidades {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: var(--cor-fundo);
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      color: var(--cor-secundaria);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95em;
+    }
+
+    /* ====== CONTATO ====== */
+    .contato form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contato input, .contato textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .contato button {
+      background-color: var(--cor-principal);
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contato button:hover {
+      background-color: var(--cor-secundaria);
+    }
+
+    /* ====== RODAPÉ ====== */
+    footer {
+      background-color: var(--cor-principal);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    /* ====== BOTÃO VOLTAR AO TOPO ====== */
+    #btnTopo {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      background-color: var(--cor-secundaria);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    }
+
+    #btnTopo:hover {
+      background-color: var(--cor-principal);
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="imagens/SENAI-SP.jpg" alt="Logo SENAI">
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#unidades">Unidades</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner" id="inicio">
+    <h1>Transforme seu Futuro com o SENAI</h1>
+    <p>Educação profissional de qualidade, com tecnologia e inovação.</p>
+    <button class="btn-banner" onclick="window.location='#cursos'">Conheça nossos cursos</button>
+  </section>
+
+  <section id="cursos">
+    <h2>Cursos em Destaque</h2>
+    <div class="cursos">
+      <div class="card">
+        <h3>Automação Industrial</h3>
+        <p>Aprenda a integrar sistemas mecânicos e eletrônicos com controle computacional. Curso prático e voltado para a indústria 4.0.</p>
+      </div>
+      <div class="card">
+        <h3>Mecânica de Precisão</h3>
+        <p>Domine processos de usinagem e metrologia. Formação completa para o setor metalmecânico.</p>
+      </div>
+      <div class="card">
+        <h3>Desenvolvimento de Sistemas</h3>
+        <p>Crie aplicativos e sistemas web. Curso voltado à tecnologia e inovação digital.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="unidades">
+    <h2>Unidades SENAI</h2>
+    <div class="unidades">
+      <div class="card">
+        <h3>SENAI Vila Leopoldina (SP)</h3>
+        <p>Centro de referência em automação e mecatrônica, com laboratórios modernos e cursos técnicos reconhecidos nacionalmente.</p>
+      </div>
+      <div class="card">
+        <h3>SENAI Maracanã (RJ)</h3>
+        <p>Excelência em formação profissional e inovação tecnológica, com foco em energia e sustentabilidade.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <h2>Fale Conosco</h2>
+    <form onsubmit="enviarFormulario(event)">
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea rows="5" placeholder="Sua mensagem..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 SENAI - Serviço Nacional de Aprendizagem Industrial</p>
+  </footer>
+
+  <button id="btnTopo" onclick="voltarAoTopo()">⬆</button>
+
+  <script>
+    // Mostrar botão "voltar ao topo"
+    window.onscroll = function() {
+      const btn = document.getElementById("btnTopo");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    // Função para voltar ao topo
+    function voltarAoTopo() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Simulação de envio de formulário
+    function enviarFormulario(e) {
+      e.preventDefault();
+      alert("Mensagem enviada com sucesso! Em breve entraremos em contato.");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
