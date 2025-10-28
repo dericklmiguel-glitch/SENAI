@@ -4,214 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal SENAI - Educação Profissional e Inovação</title>
-  <style>
-    :root {
-      --cor-principal: #e60000;
-      --cor-secundaria: #b30000;
-      --cor-fundo: #f5f5f5;
-      --cor-texto: #333;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: var(--cor-texto);
-      background-color: var(--cor-fundo);
-      scroll-behavior: smooth;
-    }
-
-    /* ====== CABEÇALHO E MENU ====== */
-    header {
-      background-color: var(--cor-principal);
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    header img {
-      height: 50px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #fff7cc;
-    }
-
-    /* ====== BANNER ====== */
-    .banner {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('https://www.sp.senai.br/images/fundo-banner.jpg') center/cover no-repeat;
-      height: 70vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      margin-top: 80px;
-    }
-
-    .banner h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-
-    .banner p {
-      font-size: 1.3em;
-      margin-bottom: 20px;
-    }
-
-    .btn-banner {
-      background-color: var(--cor-principal);
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .btn-banner:hover {
-      background-color: var(--cor-secundaria);
-    }
-
-    /* ====== SEÇÕES ====== */
-    section {
-      padding: 60px 10%;
-      background-color: white;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    section h2 {
-      text-align: center;
-      color: var(--cor-principal);
-      margin-bottom: 30px;
-      font-size: 2em;
-    }
-
-    .cursos, .unidades {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      background-color: var(--cor-fundo);
-      border-radius: 10px;
-      padding: 20px;
-      width: 300px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .card h3 {
-      color: var(--cor-secundaria);
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 0.95em;
-    }
-
-    /* ====== CONTATO ====== */
-    .contato form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    .contato input, .contato textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1em;
-    }
-
-    .contato button {
-      background-color: var(--cor-principal);
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .contato button:hover {
-      background-color: var(--cor-secundaria);
-    }
-
-    /* ====== RODAPÉ ====== */
-    footer {
-      background-color: var(--cor-principal);
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      position: relative;
-    }
-
-    /* ====== BOTÃO VOLTAR AO TOPO ====== */
-    #btnTopo {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 999;
-      background-color: var(--cor-secundaria);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      padding: 12px 16px;
-      cursor: pointer;
-      font-size: 18px;
-      box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-    }
-
-    #btnTopo:hover {
-      background-color: var(--cor-principal);
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- Cabeçalho e menu fixo -->
   <header>
     <img src="imagens/SENAI-SP.jpg" alt="Logo SENAI">
     <nav>
@@ -224,12 +21,14 @@
     </nav>
   </header>
 
+  <!-- Banner de destaque -->
   <section class="banner" id="inicio">
     <h1>Transforme seu Futuro com o SENAI</h1>
     <p>Educação profissional de qualidade, com tecnologia e inovação.</p>
     <button class="btn-banner" onclick="window.location='#cursos'">Conheça nossos cursos</button>
   </section>
 
+  <!-- Seção de Cursos em Destaque -->
   <section id="cursos">
     <h2>Cursos em Destaque</h2>
     <div class="cursos">
@@ -248,6 +47,7 @@
     </div>
   </section>
 
+  <!-- Seção de Unidades SENAI -->
   <section id="unidades">
     <h2>Unidades SENAI</h2>
     <div class="unidades">
@@ -262,6 +62,7 @@
     </div>
   </section>
 
+  <!-- Formulário de Contato -->
   <section id="contato" class="contato">
     <h2>Fale Conosco</h2>
     <form onsubmit="enviarFormulario(event)">
@@ -272,14 +73,16 @@
     </form>
   </section>
 
+  <!-- Rodapé -->
   <footer>
     <p>© 2025 SENAI - Serviço Nacional de Aprendizagem Industrial</p>
   </footer>
 
+  <!-- Botão voltar ao topo -->
   <button id="btnTopo" onclick="voltarAoTopo()">⬆</button>
 
   <script>
-    // Mostrar botão "voltar ao topo"
+    // Mostrar botão "voltar ao topo" ao rolar a página
     window.onscroll = function() {
       const btn = document.getElementById("btnTopo");
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -289,7 +92,7 @@
       }
     };
 
-    // Função para voltar ao topo
+    // Função para voltar ao topo da página
     function voltarAoTopo() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -301,5 +104,6 @@
       e.target.reset();
     }
   </script>
+
 </body>
 </html>
